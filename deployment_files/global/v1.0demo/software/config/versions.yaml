@@ -246,8 +246,8 @@ data:
         subpath: helm-toolkit
         type: git
       promenade:
-        location: https://git.openstack.org/openstack/airship-promenade
-        reference: cfb8aa498c294c2adbc369ba5aaee19b49550d22
+        location: https://git.openstack.org/drewwalters96/airship-promenade
+        reference: templates/mini-mirror
         subpath: charts/promenade
         type: git
       promenade-htk:
@@ -491,7 +491,7 @@ data:
         ks_endpoints: docker.io/openstackhelm/heat:ocata
         ks_service: docker.io/openstackhelm/heat:ocata
         ks_user: docker.io/openstackhelm/heat:ocata
-        promenade: quay.io/airshipit/promenade:cfb8aa498c294c2adbc369ba5aaee19b49550d22
+        promenade: quay.io/airshipit/promenade:latest
       shipyard:
         airflow: quay.io/airshipit/airflow:70ec78815dfc9deeb342a3fccfa3cd079a4312d9
         airflow_db_init: docker.io/postgres:9.5

@@ -89,6 +89,14 @@ data:
             rotate 1
         }
   packages:
+    mini-mirror:
+      enabled: true
+      sources:
+        - archiveType: deb
+          distribution: ubuntu-xenial
+          components:
+            - main
+            - universe
     # NOTE(mb874d): This method for specified repositories and keys will be
     # change to align with Drydock's approach.  Until then, we will specify
     # it here.

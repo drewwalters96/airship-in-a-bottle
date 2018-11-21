@@ -85,6 +85,8 @@ metadata:
         pattern: SERVICE_NODE_PORT_RANGE
 
 data:
+  images:
+    mini-mirror: quay.io/amadev/mini-mirror:v1.0
   apiserver:
     command_prefix:
       - /apiserver

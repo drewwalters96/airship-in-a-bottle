@@ -11,6 +11,18 @@ data:
     abs_path:
       type: string
       pattern: '^/.+$'
+    apt_source:
+      type: object
+      properties:
+        archiveType:
+          type: string
+        distribution:
+          type: string
+        components:
+          type: array
+          items:
+            type: string
+      additionalProperties: false
     apt_source_line:
       type: string
       # XXX add regex
@@ -71,9 +83,10 @@ data:
     images:
       type: object
       properties:
-        haproxy:
-          $ref: '#/definitions/image'
+        # NOTE(mark-burnett): No longer used.
         coredns:
+          $ref: '#/definitions/image'
+        haproxy:
           $ref: '#/definitions/image'
         helm:
           type: object
@@ -93,7 +106,6 @@ data:
           additionalProperties: false
       required:
         - haproxy
-        - coredns
         - helm
         - kubernetes
       additionalProperties: false
@@ -101,6 +113,19 @@ data:
     packages:
       type: object
       properties:
+        mini-mirror:
+          type: object
+          properties:
+            enabled:
+              type: boolean
+            sources:
+              type: array
+              items:
+                $ref: '#definitions/apt_source'
+          required:
+            - enabled
+            - repositories
+          additionalProperties: false
         additional:
           type: array
           items:
@@ -129,6 +154,17 @@ data:
 
       required:
         - required
+      additionalProperties: false
+
+    validation:
+      type: object
+      properties:
+        pod_logs:
+          type: object
+          properties:
+            image:
+              type: string
+          additionalProperties: false
       additionalProperties: false
 
   required:
